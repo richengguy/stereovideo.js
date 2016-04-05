@@ -1,0 +1,164 @@
+/* panels.scss
+ * Styling for options and control panels.  These panels are normally hidden by
+ * player but will become visible once the user performs some sort of action.
+ */
+
+@import './_variables.scss';
+
+@mixin panel-item-label-style {
+    padding: 0.3em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 0.6em;
+
+    color: $colour-icon-normal;
+}
+
+@mixin slider-thumb-properties {
+    height: 1em;
+    width: 0.5em;
+
+    appearance: none;
+    background: $colour-slider-thumb;
+    border: none;
+    border-radius: 0;
+}
+
+@mixin slider-track-properties {
+    height: 1em;
+    background: $colour-slider-track-fullscreen;
+    border: none;
+}
+
+// Top-level Panel Container
+.svjs-panel {
+    z-index: 2;
+    right: 0;
+    bottom: $control-size;
+    background: $bg-controls;
+    position:absolute;
+    display: inline-block;
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        box-shadow: inset 0 -7px 10px -10px black;
+    }
+}
+
+// Handle the case when the parent container (i.e. the <div> that holds the
+// player itself) goes fullscreen.
+:fullscreen .svjs-panel {
+    position: fixed;
+    background: $bg-controls-fullscreen;
+}
+
+// Add to a panel element to make it invisible.
+.svjs-panel-hidden {
+    display: none;
+}
+
+// Menu-style Panel Items
+.svjs-panel-item-button {
+    @include panel-item-label-style;
+    transition: color 150ms, background 150ms;
+    &:hover {
+        background: $bg-list-hover;
+        color: $colour-icon-selected;
+        cursor: pointer;
+    }
+}
+
+:fullscreen .svjs-panel-item-button {
+    &:hover {
+        background: $bg-list-hover-fullscreen;
+    }
+}
+
+// Produces a thin blue line above the particular menu item.  This allows for a
+// visual separation between items.
+.svjs-panel-item-add-separator {
+    border: none;
+    border-top-style: solid;
+    border-top-color: $colour-menu-separator;
+    border-top-width: thin;
+}
+
+:fullscreen .svjs-panel-item-add-separator {
+    border-top-color: $colour-menu-separator-fullscreen;
+}
+
+// Style a slider entry within a panel.
+.svjs-panel-item-slider {
+    @include panel-item-label-style;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    text-align: right;
+
+    span:after {
+        content: ' - ';
+    }
+
+    input[type='range'] {
+        float: right;
+        margin-left: 0.6em;
+    }
+}
+
+// Control the appearance of a slider object.
+.svjs-panel-item-slider input[type='range'] {
+    appearance: none;
+    outline: none;
+
+    &::-webkit-slider-runnable-track {
+        @include slider-track-properties;
+    }
+    &::-moz-range-track {
+        @include slider-track-properties;
+    }
+
+    &::-webkit-slider-thumb {
+        @include slider-thumb-properties;
+    }
+    &::-moz-range-thumb {
+        @include slider-thumb-properties;
+    }
+}
+
+/*:fullscreen .svjs-panel-item-slider input[type='range'] {
+    &::-webkit-slider-runnable-track {
+        background-color: $colour-slider-track-fullscreen;
+    }
+    &::-moz-range-track {
+        background-color: $colour-slider-track-fullscreen;
+    }
+}*/
+
+// Simple widget for displaying HTML-formatted text.  The text itself is stored
+// in a <div> tag with the formatting controlled via this set of classes.
+.svjs-panel-item-text {
+    width: 12em;
+    padding: 0.6em;
+
+    color: $colour-icon-normal;
+
+    div {
+        h1 {
+            margin-top: 0.2em;
+            margin-bottom: 0.2em;
+            font-size: 1.5em;
+            font-weight: 500;
+        }
+        p {
+            font-size: 1em;
+        }
+        a {
+            color: $colour-icon-normal;
+            &:hover {
+                color: $colour-icon-selected;
+            }
+        }
+    }
+}

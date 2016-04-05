@@ -1,0 +1,8 @@
+/* stereovideo.scss
+ * This top-level stylesheet for stereovideo.js imports of all of the
+ * stylesheets for the underlying components.
+ */
+@import './container.scss';
+@import './controls.scss';
+@import './buttons.scss';
+@import './panels.scss';

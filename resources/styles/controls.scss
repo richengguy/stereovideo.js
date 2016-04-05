@@ -1,0 +1,52 @@
+/* controls.scss
+ * Styling for the main control bar shown at the bottom of the player.
+ */
+@import './_variables.scss';
+
+.svjs-controls {
+    padding: 0pt;
+    background: $bg-controls;
+    height: $control-size;
+
+    // Control bar buttons are simple SVG icons that are coloured by the CSS3
+    // 'mask' property.  They are scaled to be relative to the text size for
+    // the entire container.  The icons are slightly dimmed so that they become
+    // noticeably brighter upon hover.
+    button {
+        border: none;
+        background-color: rgba($bg-controls, 0.0);
+        cursor: pointer;
+        filter: opacity(80%);
+        position: relative;
+        top: 2.5px;
+        width: $control-size - 5;
+        height:$control-size - 5;
+        transition: mask-image 300ms, transform 300ms, background 100ms;
+        &:focus {
+            outline: none;
+        }
+        &:hover {
+            filter: none;
+        }
+    }
+}
+
+// Handle all child elements when the parent container enters fullscreen mode.
+:fullscreen .svjs-controls {
+    bottom: 0;
+    background: $bg-controls-fullscreen;
+    position:fixed;
+    width: inherit;
+}
+
+// Ensure that the buttons in the "left" group are push to the left side of
+// the control bar.
+.svjs-float-left {
+
+}
+
+// Ensure that buttons in the "right" group are pushed to the right side of
+// the control bar.
+.svjs-float-right {
+    float: right;
+}

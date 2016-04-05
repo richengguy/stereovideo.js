@@ -1,0 +1,15 @@
+{
+    "opts": {
+        "recurse": true,
+        "verbose": true
+    },
+    "plugins": [
+        "plugins/markdown"
+    ],
+    "templates": {
+        "default": {
+            "includeDate": false,
+            "outputSourceFiles": false
+        }
+    }
+}

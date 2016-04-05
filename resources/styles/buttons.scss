@@ -1,0 +1,19 @@
+/* buttons.css
+ * This contains the styling for the application buttons.  They are borderless
+ * with a single icon (all base64-encoded SVG images).
+ */
+@import '_variables.scss';
+
+@mixin player-button($name, $icon) {
+    button.#{$name} {
+        background-image: $icon;
+        background-size: cover;
+    }
+}
+
+@include player-button(svjs-button-icon-play, $icon-play);
+@include player-button(svjs-button-icon-pause, $icon-pause);
+@include player-button(svjs-button-icon-fullscreen, $icon-fullscreen);
+@include player-button(svjs-button-icon-fullscreen-exit, $icon-fullscreen-exit);
+@include player-button(svjs-button-icon-replay, $icon-replay);
+@include player-button(svjs-button-icon-settings, $icon-settings);
