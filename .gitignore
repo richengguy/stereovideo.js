@@ -1,0 +1,15 @@
+# Node
+node_modules/
+
+# Build Results
+build/
+dist/
+docs/
+
+# Swap Files
+*.swo
+*.swp
+*~
+
+# OS-Related Files
+.DS_Store
