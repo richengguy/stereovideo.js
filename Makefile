@@ -87,7 +87,7 @@ doc: $(BUILD_DIR)/tmp/es2015
 	@$(jsdoc) -c jsdoc.json -d $(DOCS_DIR) $(BUILD_DIR)/tmp/es2015 README.md
 
 # Clean up all build products.
-clean: clean-build clean-docs
+clean: clean-build clean-docs clean-dist
 
 clean-build:
 	@echo '-- removing $(BUILD_DIR)'
@@ -96,3 +96,7 @@ clean-build:
 clean-docs:
 	@echo '-- removing $(DOCS_DIR)'
 	@rm -rf $(DOCS_DIR)
+
+clean-dist:
+	@echo '-- removing $(DIST_DIR)'
+	@rm -rf $(DIST_DIR)

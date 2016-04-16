@@ -121,9 +121,9 @@ The following are valid *input-range* objects:
 * All three properties.
 ```json
 {
-    min: -10,
-    max: 10
-    default: 3
+    "min": -10,
+    "max": 10,
+    "default": 3
 }
 ```
 
@@ -131,15 +131,15 @@ The following are valid *input-range* objects:
   specified or an exception is thrown.
 ```json
 {
-    min: -10,
-    max: 10
+    "min": -10,
+    "max": 10
 }
 ```
 
 * Only the default is specified.
 ```json
 {
-    default: 3
+    "default": 3
 }
 ```
 
