@@ -8,8 +8,20 @@ namespace svjs.opengl {
  * @property {number} Fragment - fragment shader
  */
 export enum ShaderType {
-    Vertex = WebGLRenderingContext.VERTEX_SHADER,
-    Fragment = WebGLRenderingContext.FRAGMENT_SHADER
+    Vertex,
+    Fragment
+}
+
+function InternalShaderType(type: ShaderType,
+                            gl: WebGLRenderingContext): number {
+    switch (type) {
+        case ShaderType.Vertex:
+            return gl.VERTEX_SHADER;
+        case ShaderType.Fragment:
+            return gl.FRAGMENT_SHADER;
+    }
+
+    return 0;
 }
 
 /**
@@ -175,7 +187,7 @@ export class GLSLShader {
      * @param {WebGLRenderContext} gl - rendering context
      */
     constructor(gl: WebGLRenderingContext, src: ShaderSource) {
-        this.shader_ = gl.createShader(src.Type);
+        this.shader_ = gl.createShader(InternalShaderType(src.Type, gl));
         gl.shaderSource(this.shader_, src.Source);
         gl.compileShader(this.shader_);
 
