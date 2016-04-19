@@ -170,7 +170,10 @@ class StereoVideo {
             }
         }
 
-        this.renderer_.DBIRSetting = { scale: 1, bias: 0 };
+        this.renderer_.DBIRSetting = {
+            scale: this.options_.scale.default,
+            bias: this.options_.bias.default
+        };
         this.Render_();
     }
 
