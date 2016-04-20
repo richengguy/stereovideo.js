@@ -8,30 +8,31 @@
 .svjs-container {
     margin: 0;
     padding: 0;
-    float: left;
     display: inline-block;
     position: relative;
     z-index: 1;
 
     // Force a "reset" of all elements within the container.  This avoids some
     // browser-related issues.
-    input, button, ul, li {
+    input, button, ul, li, span, div, p, h1 {
         font-size: 100%;
         font-family: 'Helvetica', sans-serif;
+        text-align: left;
     }
 
     canvas {
         display: block;
         width: inherit;
+    }
 
-        &:fullscreen {
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-        }
+    &:fullscreen canvas {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     &:fullscreen {
+        position: absolute;
         background-color: black;
         width: 100%;
     }
