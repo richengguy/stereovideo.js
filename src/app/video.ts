@@ -49,6 +49,7 @@ export class Video implements opengl.Dimensions {
     public constructor(src: string | VideoFile | VideoFile[]) {
         this.element_ = ui.dom.Generate<HTMLVideoElement>('video');
         this.element_.Element.style.display = 'none';
+        this.element_.Element.setAttribute('crossOrigin', 'anonymous');
 
         if (typeof src === 'string') {
             this.element_.Element.setAttribute('src', src);

@@ -160,4 +160,4 @@ licence.
 
 # Licence
 
-Copyright (c) 2016 Richard Rzeszutek under a BSD Licence.
+Copyright (c) 2016-2019 Richard Rzeszutek under a BSD Licence.
